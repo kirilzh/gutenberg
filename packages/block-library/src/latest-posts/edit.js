@@ -157,14 +157,9 @@ class LatestPostsEdit extends Component {
 		} );
 		request.then( unescapeTerms ).then( ( terms ) => {
 			this.setState( ( state ) => ( {
-				suggestedTags: state.tagsList.concat(
-					terms.filter(
-						( term ) =>
-							! find(
-								state.tagsList,
-								( tag ) => tag.id === term.id
-							)
-					)
+				suggestedTags: terms.filter(
+					( term ) =>
+						! find( state.tagsList, ( tag ) => tag.id === term.id )
 				),
 			} ) );
 		} );
